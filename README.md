@@ -1,4 +1,4 @@
-# 🤖 Amazing AI Function-calling
+# 🤖 Smart AI Multi-agents Assistant
 To-do, Task Schedule, Weather, Time and more!
 
 ## ✨ Key Features
