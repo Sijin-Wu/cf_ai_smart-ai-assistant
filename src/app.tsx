@@ -209,11 +209,23 @@ export default function Chat() {
                   <ul className="text-sm text-left space-y-2">
                     <li className="flex items-center gap-2">
                       <span className="text-[#F48120]">•</span>
-                      <span>Weather information for any city</span>
+                      <span>Finding your current location (e.g. "Where am I?")</span>
                     </li>
                     <li className="flex items-center gap-2">
                       <span className="text-[#F48120]">•</span>
-                      <span>Local time in different locations</span>
+                      <span>Weather information for any place (e.g. Weather in Brooklyn)</span>
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <span className="text-[#F48120]">•</span>
+                      <span>Local time in different places (e.g. "Time in Santa Monica")</span>
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <span className="text-[#F48120]">•</span>
+                      <span>Scheduling tasks (e.g. "Remind me to call Jenny in 2 hours")</span>
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <span className="text-[#F48120]">•</span>
+                      <span>Managing a todo list (e.g. "Add 'Do homework 2' to my todo list")</span>
                     </li>
                   </ul>
                 </div>

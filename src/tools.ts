@@ -13,6 +13,7 @@ import { scheduleSchema } from "agents/schedule";
 import { getCurrentLocation } from "./tools/location";
 import { getLocalTime as getLocalTimeImpl } from "./tools/time";
 import { getWeatherInformation as getWeatherImpl } from "./tools/weather";
+import { addTodoTask, getTodoTasks, toggleTodoTask, removeTodoTask, clearAllTodoTasks } from "./tools/todo";
 
 /**
  * Weather information tool - now with full implementation
@@ -111,7 +112,13 @@ export const tools = {
   getCurrentLocation,
   scheduleTask,
   getScheduledTasks,
-  cancelScheduledTask
+  cancelScheduledTask,
+  // Todo list tools
+  addTodoTask,
+  getTodoTasks,
+  toggleTodoTask,
+  removeTodoTask,
+  clearAllTodoTasks
 } satisfies ToolSet;
 
 /**
