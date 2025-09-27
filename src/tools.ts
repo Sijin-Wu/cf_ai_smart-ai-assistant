@@ -9,29 +9,22 @@ import type { Chat } from "./server";
 import { getCurrentAgent } from "agents";
 import { scheduleSchema } from "agents/schedule";
 
-/**
- * Weather information tool that requires human confirmation
- * When invoked, this will present a confirmation dialog to the user
- */
-const getWeatherInformation = tool({
-  description: "show the weather in a given city to the user",
-  inputSchema: z.object({ city: z.string() })
-  // Omitting execute function makes this tool require human confirmation
-});
+// Import new tools from tools directory
+import { getCurrentLocation } from "./tools/location";
+import { getLocalTime as getLocalTimeImpl } from "./tools/time";
+import { getWeatherInformation as getWeatherImpl } from "./tools/weather";
 
 /**
- * Local time tool that executes automatically
- * Since it includes an execute function, it will run without user confirmation
- * This is suitable for low-risk operations that don't need oversight
+ * Weather information tool - now with full implementation
+ * Automatically executes to get real weather data
  */
-const getLocalTime = tool({
-  description: "get the local time for a specified location",
-  inputSchema: z.object({ location: z.string() }),
-  execute: async ({ location }) => {
-    console.log(`Getting local time for ${location}`);
-    return "10am";
-  }
-});
+const getWeatherInformation = getWeatherImpl;
+
+/**
+ * Local time tool - now with full implementation using time services
+ * Automatically executes to get accurate time information
+ */
+const getLocalTime = getLocalTimeImpl;
 
 const scheduleTask = tool({
   description: "A tool to schedule a task to be executed at a later time",
@@ -115,6 +108,7 @@ const cancelScheduledTask = tool({
 export const tools = {
   getWeatherInformation,
   getLocalTime,
+  getCurrentLocation,
   scheduleTask,
   getScheduledTasks,
   cancelScheduledTask
@@ -124,10 +118,8 @@ export const tools = {
  * Implementation of confirmation-required tools
  * This object contains the actual logic for tools that need human approval
  * Each function here corresponds to a tool above that doesn't have an execute function
+ * Note: Weather and time tools now execute automatically, so no confirmation needed
  */
 export const executions = {
-  getWeatherInformation: async ({ city }: { city: string }) => {
-    console.log(`Getting weather information for ${city}`);
-    return `The weather in ${city} is sunny`;
-  }
+  // All current tools now execute automatically
 };
